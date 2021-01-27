@@ -1,7 +1,7 @@
 {
   "name": "macaronibros/macaroni_ckeditor_lightbox",
   "description": "Adds Lightbox functionality to CKEditor images",
-  "type": "drupal-module",
+  "type": "drupal-custom-module",
   "homepage": "https://github.com/macaronibros/ckeditor-lightbox",
   "authors": [
     {
@@ -15,5 +15,12 @@
   "require": {
     "php": ">=7.0",
     "frontpack/lightbox2": ">2"
+  }
+  "extra": {
+    "drupal-libraries": {
+      "libraries": [
+        {"name": "lightbox2", "package": "frontpack/lightbox2"}
+      ]
+    }
   }
 }
