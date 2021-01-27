@@ -12,5 +12,33 @@
   ],
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
-  "require": {}
+  "prefer-stable": true,
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    "assets": {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  },
+  "require": {
+    "composer/installers": "~1.0 || ~2.0",
+    "oomphinc/composer-installers-extender": "~1.0 || ~2.0",
+    "npm-asset/lightbox2": "~2"
+  },
+  "extra": {
+    "installer-types": [
+      "npm-asset"
+    ],
+    "installer-paths": {
+      "libraries/lightbox2": ["npm-asset/lightbox2"]
+    },
+    "drupal-libraries": {
+      "libraries": [
+        {"name": "lightbox2", "package": "npm-asset/lightbox2"}
+      ]
+    }
+  }
 }
