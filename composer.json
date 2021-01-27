@@ -12,15 +12,5 @@
   ],
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
-  "require": {
-    "php": ">=7.0",
-    "frontpack/lightbox2": ">2"
-  },
-  "extra": {
-    "drupal-libraries": {
-      "libraries": [
-        {"name": "lightbox2", "package": "frontpack/lightbox2"}
-      ]
-    }
-  }
+  "require": {}
 }
