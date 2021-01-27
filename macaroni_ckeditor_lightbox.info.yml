@@ -1,0 +1,7 @@
+name: Macaroni CKEditor Lightbox
+type: module
+description: Adds a lightbox toolbar button.
+core: 8.x
+package: CKEditor
+dependencies:
+  - ckeditor

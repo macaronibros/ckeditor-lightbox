@@ -1,0 +1,42 @@
+<?php
+
+use Drupal\editor\Entity\Editor;
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ *
+ * @param $form
+ * @param $form_state
+ */
+function macaroni_ckeditor_lightbox_form_editor_image_dialog_alter(&$form, &$form_state) {
+
+  $editor = $form_state->getBuildInfo()['args'][0];
+
+  if (isset($form_state->getUserInput()['editor_object'])) {
+    // By convention, the data that the text editor sends to any dialog is in
+    // the 'editor_object' key. And the image dialog for text editors expects
+    // that data to be the attributes for an <img> element.
+    $image_element = $form_state->getUserInput()['editor_object'];
+    $form_state->set('image_element', $image_element);
+    $form_state->setCached(TRUE);
+  }
+  else {
+    // Retrieve the image element's attributes from form state.
+    $image_element = $form_state->get('image_element') ?: [];
+  }
+
+  if($editor->getFilterFormat()->filters('filter_lightbox')->status) {
+    $form['lightbox'] = [
+      '#title' => t('Enable Lightbox'),
+      '#type' => 'checkbox',
+      '#return_value' => 'true',
+      '#default_value' => $image_element['data-lightbox'],
+      '#parents' => ['attributes', 'data-lightbox'],
+    ];
+  }
+
+}
+
+function macaroni_ckeditor_lightbox_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'macaroni_ckeditor_lightbox/lightbox';
+}
