@@ -1,6 +1,0 @@
-lightbox:
-  css:
-    component:
-      libraries/lightbox2/css/lightbox.min.css: {}
-  js:
-    libraries/lightbox2/js/lightbox.min.js: {}
