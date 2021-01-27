@@ -15,7 +15,7 @@
   "require": {
     "php": ">=7.0",
     "frontpack/lightbox2": ">2"
-  }
+  },
   "extra": {
     "drupal-libraries": {
       "libraries": [
